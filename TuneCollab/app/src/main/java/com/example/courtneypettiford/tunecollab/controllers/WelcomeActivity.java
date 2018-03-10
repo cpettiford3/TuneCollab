@@ -1,9 +1,11 @@
-package com.example.courtneypettiford.tunecollab;
+package com.example.courtneypettiford.tunecollab.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.courtneypettiford.tunecollab.R;
+
+public class WelcomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
