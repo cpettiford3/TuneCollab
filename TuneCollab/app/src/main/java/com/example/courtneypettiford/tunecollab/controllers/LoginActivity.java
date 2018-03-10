@@ -20,34 +20,35 @@ import com.google.firebase.auth.FirebaseAuth;
  * Created by courtneypettiford on 3/9/18.
  */
 
-public class RegisterActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
-    private Button btnSignUp, btnBack;
+    EditText inputEmail, inputPassword;
+    Button btnSubmit, btnCancel;
 
-    private FirebaseAuth mAuth;
-
+    private FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-        //Get Firebase auth instance
-        mAuth = FirebaseAuth.getInstance();
-
-        btnSignUp = (Button) findViewById(R.id.signUp);
-        btnBack = (Button) findViewById(R.id.registerBack);
-        inputEmail = (EditText) findViewById(R.id.email);
-        inputPassword = (EditText) findViewById(R.id.password);
+        setContentView(R.layout.activity_login);
 
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+
+        // Set up the login form.
+        inputEmail = findViewById(R.id.emailLogin);
+
+        inputPassword =  findViewById(R.id.passwordLogin);
+
+
+        btnSubmit = findViewById(R.id.submitLogin);
+        btnCancel =  findViewById(R.id.cancelLogin);
+
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String email = inputEmail.getText().toString().trim();
-                String password = inputPassword.getText().toString().trim();
+                String email = inputEmail.getText().toString();
+                final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
@@ -59,48 +60,58 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
-                if (password.length() < 6) {
-                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                //create user
-                mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+                auth = FirebaseAuth.getInstance();
+                //authenticate user
+                auth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(RegisterActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
                                 // If sign in fails, display a message to the user. If sign in succeeds
                                 // the auth state listener will be notified and logic to handle the
                                 // signed in user can be handled in the listener.
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
+                                    // TODO: error for password length?
+
                                 } else {
-                                    startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
                                     finish();
                                 }
                             }
                         });
-
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                returnToWelcomeScreen();
+                cancel();
             }
         });
+
+
     }
 
-    //return to welcome screen
-    private void returnToWelcomeScreen() {
-        startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
+    /**
+     * Attempts to sign in or register the account specified by the login form.
+     * If there are form errors (invalid email, missing fields, etc.), the
+     * errors are presented and no actual login attempt is made.
+     */
+
+    private void cancel() {
+        startActivity(new Intent(LoginActivity.this, WelcomeActivity.class));
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+
+    private boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
+        return email.contains("@");
+    }
+
+    private boolean isPasswordValid(String password) {
+        //TODO: Replace this with your own logic
+        return password.length() > 4;
     }
 }
+
+
