@@ -8,27 +8,26 @@ import android.widget.Button;
 
 import com.example.courtneypettiford.tunecollab.R;
 
-
 /**
- * Created by courtneypettiford on 3/9/18.
+ * Created by courtneypettiford on 3/10/18.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
 
-    Button btnViewProfile;
+    Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        btnViewProfile = findViewById(R.id.viewProfile);
+        btnSubmit = findViewById(R.id.submitProfile);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnViewProfile.setOnClickListener(new View.OnClickListener() {
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+
             }
         });
     }
