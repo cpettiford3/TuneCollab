@@ -12,19 +12,19 @@ public enum Role {
     AUDIO_TECHNICIAN("Audio technician"),
     SOUND_ENGINEER("Sound engineer");
 
-    private String type;
+    private String role;
 
     Role(String string) {
-        this.type = string;
+        this.role = string;
     }
 
-    public String getType() {
-        return this.type;
+    public String getRole() {
+        return this.role;
     }
 
     @Override
     public String toString() {
-        return "Role{}";
+        return this.role;
     }
 
 

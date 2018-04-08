@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.example.courtneypettiford.tunecollab.R;
 
+
 public class WelcomeActivity extends AppCompatActivity {
 
     Button btnRegister, btnLogin;
@@ -43,6 +44,6 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void login() {
-        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
     }
 }

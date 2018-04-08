@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
+
+    <Button
+        android:id="@+id/editName"
+        android:layout_width="254dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="49dp"
+        android:text="Edit Name"
+        app:layout_constraintBottom_toTopOf="@+id/userRole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/userRole"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="65dp"
+        android:layout_marginStart="65dp"
+        android:text="What service(s) are you providing?"
+        app:layout_constraintBottom_toTopOf="@+id/otherUserRole"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
+
+    <Button
+        android:id="@+id/instrument"
+        android:layout_width="236dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="93dp"
+        android:text="What instrument(s) do you play?"
+        app:layout_constraintBottom_toTopOf="@+id/backFromEditProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/otherUserRole" />
+
+    <Button
+        android:id="@+id/otherUserRole"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginStart="66dp"
+        android:text="What service(s) are you looking for? "
+        app:layout_constraintBottom_toTopOf="@+id/instrument"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userRole" />
+
+    <Button
+        android:id="@+id/backFromEditProfile"
+        android:layout_width="82dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginStart="16dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instrument" />
+
+
+</android.support.constraint.ConstraintLayout>

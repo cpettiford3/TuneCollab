@@ -8,27 +8,27 @@ import android.widget.Button;
 
 import com.example.courtneypettiford.tunecollab.R;
 
-
 /**
- * Created by courtneypettiford on 3/9/18.
+ * Created by courtneypettiford on 3/23/18.
  */
 
-public class MainActivity extends AppCompatActivity {
-
-    Button btnViewProfile;
+public class EditNameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_edit_name);
 
-        btnViewProfile = findViewById(R.id.viewProfile);
 
-        btnViewProfile.setOnClickListener(new View.OnClickListener() {
+        Button back = findViewById(R.id.editNameBackButton);
+        Button submit = findViewById(R.id.submitNameEditButton);
+
+        back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
+                startActivity(new Intent(EditNameActivity.this, EditProfileActivity.class));
             }
         });
+
     }
 }

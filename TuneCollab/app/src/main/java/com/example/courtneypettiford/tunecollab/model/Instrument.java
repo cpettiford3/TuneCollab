@@ -22,19 +22,19 @@ public enum Instrument {
     SYNTH("Synth"),
     OTHER("Other");
 
-    private String type;
+    private String instrument;
 
     Instrument(String string) {
-        this.type = string;
+        this.instrument = string;
     }
 
-    public String getType() {
-        return this.type;
+    public String getInstrument() {
+        return this.instrument;
     }
 
     @Override
     public String toString() {
-        return "Instruments{}";
+        return this.instrument;
     }
 
 }

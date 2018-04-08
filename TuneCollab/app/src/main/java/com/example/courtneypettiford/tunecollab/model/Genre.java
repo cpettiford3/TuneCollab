@@ -36,19 +36,19 @@ public enum Genre {
     SKA("Ska"),
     EDM("EDM");
 
-    private String type;
+    private String genre;
 
     Genre(String string) {
-        this.type = string;
+        this.genre = string;
     }
 
-    public String getType() {
-        return this.type;
+    public String getGenre() {
+        return this.genre;
     }
 
     @Override
     public String toString() {
-        return "Genres{}";
+        return this.genre;
     }
 
 
