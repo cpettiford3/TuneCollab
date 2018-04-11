@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/email"
@@ -29,7 +30,7 @@
         android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="@+id/passwordText"
@@ -40,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="22dp"
         android:layout_marginBottom="58dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="57dp"
         android:text="Password:"
         app:layout_constraintBottom_toBottomOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/email"
@@ -50,9 +51,10 @@
         android:id="@+id/registerBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
         android:text="Back"
         app:layout_constraintBaseline_toBaselineOf="@+id/signUp"
-        app:layout_constraintStart_toStartOf="@+id/password" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/signUp"

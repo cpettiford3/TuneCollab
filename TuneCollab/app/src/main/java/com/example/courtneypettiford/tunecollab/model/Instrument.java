@@ -34,7 +34,7 @@ public enum Instrument {
 
     @Override
     public String toString() {
-        return this.instrument;
+        return instrument;
     }
 
 }

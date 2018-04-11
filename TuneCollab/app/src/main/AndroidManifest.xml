@@ -19,7 +19,7 @@
         <activity android:name=".controllers.RegisterActivity" />
         <activity android:name=".controllers.MainActivity" />
         <activity android:name=".controllers.LoginActivity" />
-        <activity android:name=".controllers.EditProfileActivity" />
+        <activity android:name=".controllers.ProfileActivity" />
         <activity android:name=".controllers.EditNameActivity" />
     </application>
 

@@ -8,9 +8,9 @@ import java.util.List;
 
 public class User {
 
-    Integer uID;
     String firstName;
     String lastName;
+    String stageName;
     String email;
     String password;
     String location;
@@ -20,13 +20,23 @@ public class User {
     List<Role> roles;
     List<Instrument> instruments;
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
-    public User(String firstName, String lastName, String location, List<String> influences,
-                List<Genre> genres, List<Role> roles, List<Role> interests,
-                List<Instrument> instruments){
+    public User(String firstName, String lastName, String stageName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.location = location;
+        this.stageName = stageName;
+    }
+
+    public User(String firstName, String lastName, String stageName,
+                List<String> influences, List<Genre> genres, List<Role> roles,
+                List<Role> interests, List<Instrument> instruments){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.stageName = stageName;
         this.influences = influences;
         this.genres = genres;
         this.roles = roles;
@@ -50,6 +60,8 @@ public class User {
     public String getLocation() {
         return location;
     }
+
+
 
 
 
