@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 
 import com.example.courtneypettiford.tunecollab.R;
 import com.example.courtneypettiford.tunecollab.model.Genre;
@@ -16,6 +15,8 @@ import com.example.courtneypettiford.tunecollab.model.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.thomashaertel.widget.MultiSpinner;
+
+import java.util.ArrayList;
 
 /**
  * Created by courtneypettiford on 3/10/18.
@@ -32,6 +33,11 @@ public class ProfileActivity extends AppCompatActivity {
     private ArrayAdapter<Role> userRoleAdapter;
     private ArrayAdapter<Role> lookingForRoleAdapter;
 
+    private ArrayList<Instrument> instruments;
+    private ArrayList<Role> roles;
+    private ArrayList<Role> lookingForRole;
+    private ArrayList<Genre> genres;
+
     private Button back, updateInfo;
 
     private DatabaseReference mDatabase;
@@ -43,6 +49,14 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        back = findViewById(R.id.backFromEditProfile);
+        updateInfo = findViewById(R.id.updateProfileInfo);
+
+        instruments = new ArrayList<>();
+        roles = new ArrayList<>();
+        lookingForRole = new ArrayList<>();
+        genres = new ArrayList<>();
 
         mDatabase = FirebaseDatabase.getInstance().getReference("users");
 
@@ -107,7 +121,14 @@ public class ProfileActivity extends AppCompatActivity {
 
     private MultiSpinner.MultiSpinnerListener onSelectedListener = new MultiSpinner.MultiSpinnerListener() {
         public void onItemsSelected(boolean[] selected) {
-            // Do something here with the selected items
+
+            for (int i = 0; i < selected.length; i++) {
+                if (selected[i]) {
+                    instruments.add(instrumentAdapter.getItem(i));
+                }
+            }
+
         }
     };
+
 }
