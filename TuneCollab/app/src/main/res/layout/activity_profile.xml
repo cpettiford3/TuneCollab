@@ -8,146 +8,185 @@
 
     <TextView
         android:id="@+id/firstNameText"
-        android:layout_width="75dp"
-        android:layout_height="25dp"
-        android:text="First name:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="65dp"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="First name: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/firstName"
-        android:layout_width="182dp"
-        android:layout_height="26dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="101dp" />
-
-    <TextView
-        android:id="@+id/lastNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/secondNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
         android:text="Last name:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="113dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <EditText
         android:id="@+id/lastName"
-        android:layout_width="183dp"
-        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="170dp"
-        tools:layout_editor_absoluteY="65dp" />
+        app:layout_constraintStart_toStartOf="@+id/firstName"
+        app:layout_constraintTop_toBottomOf="@+id/firstName" />
 
     <TextView
         android:id="@+id/stageNameText"
-        android:layout_width="115dp"
-        android:layout_height="41dp"
-        android:text="Stage name (if applicable):"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="146dp" />
+        android:layout_width="94dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Stage name: (if applicable)"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/secondNameText" />
 
     <EditText
         android:id="@+id/stageName"
-        android:layout_width="182dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="146dp" />
+        app:layout_constraintStart_toStartOf="@+id/lastName"
+        app:layout_constraintTop_toBottomOf="@+id/lastName" />
 
     <TextView
         android:id="@+id/influencesText"
-        android:layout_width="83dp"
-        android:layout_height="25dp"
-        android:text="Influences:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="203dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Influence(s):"
+        app:layout_constraintBaseline_toBaselineOf="@+id/influences"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/influences"
-        android:layout_width="179dp"
-        android:layout_height="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="194dp" />
+        app:layout_constraintStart_toStartOf="@+id/stageName"
+        app:layout_constraintTop_toBottomOf="@+id/stageName" />
 
     <com.thomashaertel.widget.MultiSpinner
         android:id="@+id/instrumentSpinner"
-        android:layout_width="179dp"
-        android:layout_height="26dp"
-        tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="242dp" />
-
-    <TextView
-        android:id="@+id/instrumentText"
-        android:layout_width="103dp"
+        android:layout_width="205dp"
         android:layout_height="28dp"
+        android:layout_marginBottom="212dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/instrumentsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:text="Instrument(s):"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="242dp" />
-
-    <com.thomashaertel.widget.MultiSpinner
-        android:id="@+id/roleSpinner"
-        android:layout_width="176dp"
-        android:layout_height="20dp"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="282dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/instrumentSpinner" />
 
     <TextView
-        android:id="@+id/rolesText"
-        android:layout_width="152dp"
-        android:layout_height="34dp"
-        android:text="Role:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="278dp" />
-
-    <TextView
-        android:id="@+id/genreText"
+        android:id="@+id/genresText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="Genre(s):"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="325dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instrumentsText" />
 
     <com.thomashaertel.widget.MultiSpinner
-        android:id="@+id/genreSpinner"
-        android:layout_width="174dp"
-        android:layout_height="18dp"
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="325dp" />
+        android:id="@+id/genresSpinner"
+        android:layout_width="205dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="168dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/lookingForText"
+        android:id="@+id/userRoleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Looking for: "
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="360dp" />
+        android:layout_marginEnd="42dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Your role(s): "
+        app:layout_constraintEnd_toStartOf="@+id/userRoleSpinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genresText" />
+
+    <com.thomashaertel.widget.MultiSpinner
+        android:id="@+id/userRoleSpinner"
+        android:layout_width="0dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="124dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/userRoleText" />
+
+    <TextView
+        android:id="@+id/lookingForRoleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="84dp"
+        android:layout_marginStart="16dp"
+        android:text="Looking For"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.thomashaertel.widget.MultiSpinner
         android:id="@+id/lookingForRoleSpinner"
-        android:layout_width="175dp"
-        android:layout_height="17dp"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="365dp" />
-
-    <Button
-        android:id="@+id/updateProfileInfo"
-        android:layout_width="91dp"
-        android:layout_height="40dp"
-        android:text="Update Info"
-        tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="413dp" />
+        android:layout_width="200dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="64dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.872"
+        app:layout_constraintStart_toEndOf="@+id/lookingForRoleText" />
 
     <Button
         android:id="@+id/backFromEditProfile"
-        android:layout_width="77dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="8dp"
         android:text="Back"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lookingForRoleSpinner" />
+
+    <Button
+        android:id="@+id/updateProfileInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="101dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="8dp"
+        android:text="Update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/influencesText"
+        app:layout_constraintTop_toBottomOf="@+id/lookingForRoleSpinner" />
 
 </android.support.constraint.ConstraintLayout>
