@@ -15,7 +15,7 @@ import com.example.courtneypettiford.tunecollab.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnViewProfile;
+    Button btnViewProfile, btnConnectSpotify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnViewProfile = findViewById(R.id.viewProfile);
+        btnConnectSpotify = findViewById(R.id.connectSpotify);
 
         btnViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            }
+        });
+
+        btnConnectSpotify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
