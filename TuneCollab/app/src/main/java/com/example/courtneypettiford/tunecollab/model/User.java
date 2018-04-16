@@ -11,24 +11,19 @@ public class User {
     String firstName;
     String lastName;
     String stageName;
-    String email;
-    String password;
-    String location;
     List<String> influences;
     List<Genre> genres;
     List<Role> interests;
     List<Role> roles;
     List<Instrument> instruments;
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
+    //TODO: add location in???
 
-    public User(String firstName, String lastName, String stageName) {
+    public User(String firstName, String lastName, String stageName, List<Instrument> instruments) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.stageName = stageName;
+        this.instruments = instruments;
     }
 
     public User(String firstName, String lastName, String stageName,
@@ -53,14 +48,15 @@ public class User {
         return lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
+    public String getStageName() { return stageName; }
 
-    public String getLocation() {
-        return location;
-    }
+    public List<String> getInfluences() { return influences; }
 
+    public List<Genre> getGenres() { return genres; }
+
+    public List<Role> getRoles() { return roles; }
+
+    public List<Instrument> getInstruments() { return instruments; }
 
 
 

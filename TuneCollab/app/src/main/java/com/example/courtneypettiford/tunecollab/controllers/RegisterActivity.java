@@ -85,6 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
+                                    writeNewUser(email, password);
                                     startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
                                     finish();
                                 }
@@ -101,6 +102,14 @@ public class RegisterActivity extends AppCompatActivity {
                 returnToWelcomeScreen();
             }
         });
+    }
+
+
+
+    private void writeNewUser(String email, String password) {
+        String userId = mDatabase.push().getKey();
+        //User user = new User(email, password);
+        mDatabase.child(userId).setValue(user);
     }
 
     //return to welcome screen
