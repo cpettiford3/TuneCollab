@@ -8,14 +8,9 @@ import android.widget.Button;
 
 import com.example.courtneypettiford.tunecollab.R;
 
-
-/**
- * Created by courtneypettiford on 3/9/18.
- */
-
 public class MainActivity extends AppCompatActivity {
 
-    Button btnViewProfile, btnConnectSpotify;
+    Button btnViewProfile, btnConnectSpotify, btnViewRecommendedProfiles, btnLogout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +19,36 @@ public class MainActivity extends AppCompatActivity {
 
         btnViewProfile = findViewById(R.id.viewProfile);
         btnConnectSpotify = findViewById(R.id.connectSpotify);
+        btnViewRecommendedProfiles = findViewById(R.id.viewRecommendProfiles);
+        btnLogout = findViewById(R.id.logout);
 
         btnViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                startActivity(new Intent(MainActivity.this, EditProfileActivity.class));
             }
         });
 
         btnConnectSpotify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                startActivity(new Intent(MainActivity.this, ConnectSpotifyActivity.class));
             }
         });
+
+        btnViewRecommendedProfiles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, WelcomeActivity.class));
+            }
+        });
+
     }
 }

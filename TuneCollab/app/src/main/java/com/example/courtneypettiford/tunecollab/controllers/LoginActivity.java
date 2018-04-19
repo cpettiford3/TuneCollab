@@ -16,10 +16,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-/**
- * Created by courtneypettiford on 3/9/18.
- */
-
 public class LoginActivity extends AppCompatActivity {
 
     EditText inputEmail, inputPassword;

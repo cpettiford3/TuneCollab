@@ -21,10 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by courtneypettiford on 3/9/18.
- */
-
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
@@ -85,7 +81,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Authentication failed." + task.getException(),
                                             Toast.LENGTH_SHORT).show();
                                 } else {
-                                    writeNewUser(email, password);
                                     startActivity(new Intent(RegisterActivity.this, WelcomeActivity.class));
                                     finish();
                                 }
@@ -94,22 +89,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
-
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 returnToWelcomeScreen();
             }
         });
-    }
-
-
-
-    private void writeNewUser(String email, String password) {
-        String userId = mDatabase.push().getKey();
-        //User user = new User(email, password);
-        mDatabase.child(userId).setValue(user);
     }
 
     //return to welcome screen
