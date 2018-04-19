@@ -44,6 +44,6 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void login() {
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+        startActivity(new Intent(WelcomeActivity.this, LoginActivity.class));
     }
 }

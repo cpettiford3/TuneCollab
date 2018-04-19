@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/userNameText"
+        android:layout_width="156dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="188dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/instrumentsProfileText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/genreProfileText"
+        android:layout_width="154dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="383dp"
+        android:text="Genre(s):"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/userNameText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/userNameText"
+        app:layout_constraintTop_toBottomOf="@+id/userNameText"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/genreProfile"
+        android:layout_width="341dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genreProfileText" />
+
+    <TextView
+        android:id="@+id/roleProfileText"
+        android:layout_width="160dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="301dp"
+        android:text="Role(s):"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/genreProfileText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/genreProfile"
+        app:layout_constraintTop_toBottomOf="@+id/userNameText"
+        app:layout_constraintVertical_bias="0.924" />
+
+    <TextView
+        android:id="@+id/instrumentsProfileText"
+        android:layout_width="156dp"
+        android:layout_height="28dp"
+        android:layout_marginBottom="226dp"
+        android:layout_marginEnd="2dp"
+        android:text="Instrument(s):"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/roleProfileText"
+        app:layout_constraintTop_toBottomOf="@+id/userNameText" />
+
+    <TextView
+        android:id="@+id/instrumentProfile"
+        android:layout_width="323dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/textView21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/instrumentsProfileText" />
+
+    <Button
+        android:id="@+id/backFromProfile"
+        android:layout_width="74dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginStart="16dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/acceptProfile"
+        android:layout_width="92dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginStart="84dp"
+        android:text="Accept"
+        app:layout_constraintBottom_toTopOf="@+id/backFromProfile"
+        app:layout_constraintEnd_toStartOf="@+id/rejectProfile"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/rejectProfile"
+        android:layout_width="98dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="90dp"
+        android:text="Reject"
+        app:layout_constraintBaseline_toBaselineOf="@+id/acceptProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/acceptProfile" />
+
+    <TextView
+        android:id="@+id/influencesProfileText"
+        android:layout_width="168dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="34dp"
+        android:layout_marginTop="30dp"
+        android:text="Influences:"
+        app:layout_constraintBottom_toTopOf="@+id/acceptProfile"
+        app:layout_constraintStart_toStartOf="@+id/instrumentProfile"
+        app:layout_constraintTop_toTopOf="@+id/instrumentProfile"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/influencesProfile"
+        android:layout_width="346dp"
+        android:layout_height="21dp"
+        android:layout_marginBottom="118dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/roleProfile"
+        android:layout_width="333dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/genreProfile"
+        app:layout_constraintTop_toBottomOf="@+id/roleProfileText" />
+
+</android.support.constraint.ConstraintLayout>

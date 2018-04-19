@@ -34,7 +34,13 @@ public enum Genre {
     FOLK("Folk"),
     NEW_AGE("New aAge"),
     SKA("Ska"),
-    EDM("EDM");
+    EDM("EDM"),
+    ALTROCK("Alt-rock"),
+    CHILL("Chill"),
+    ELECTRONIC("Electronic"),
+    GRUNGE("Grunge"),
+    PUNK("Punk"),
+    DANCEHALL("Dancehall");
 
     private String genre;
 

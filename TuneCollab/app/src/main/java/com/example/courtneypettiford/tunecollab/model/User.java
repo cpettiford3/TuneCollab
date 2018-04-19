@@ -8,27 +8,28 @@ import java.util.List;
 
 public class User {
 
-    String firstName;
-    String lastName;
-    String stageName;
-    List<String> influences;
-    List<Genre> genres;
-    List<Role> interests;
-    List<Role> roles;
-    List<Instrument> instruments;
+    private String firstName;
+    private String lastName;
+    private String stageName;
+    private List<String> influences;
+    private List<Genre> genres;
+    private List<Role> interests;
+    private List<Role> roles;
+    private List<Instrument> instruments;
+    private List<String> mostPlayedSpotifyArtists;
+    private List<String> recentlyPlayedAlbums;
+    private List<User> acceptedUsers;
+    private List<User> rejectedUsers;
 
     //TODO: add location in???
 
-    public User(String firstName, String lastName, String stageName, List<Instrument> instruments) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.stageName = stageName;
-        this.instruments = instruments;
-    }
+    public User() {}
 
     public User(String firstName, String lastName, String stageName,
                 List<String> influences, List<Genre> genres, List<Role> roles,
-                List<Role> interests, List<Instrument> instruments){
+                List<Role> interests, List<Instrument> instruments,
+                List<String> mostPlayedSpotifyArtists, List<String> recentlyPlayedAlbums,
+                List<User> acceptedUsers, List<User> rejectedUsers){
         this.firstName = firstName;
         this.lastName = lastName;
         this.stageName = stageName;
@@ -37,6 +38,10 @@ public class User {
         this.roles = roles;
         this.interests = interests;
         this.instruments = instruments;
+        this.mostPlayedSpotifyArtists = mostPlayedSpotifyArtists;
+        this.recentlyPlayedAlbums = recentlyPlayedAlbums;
+        this.acceptedUsers = acceptedUsers;
+        this.rejectedUsers = rejectedUsers;
     }
 
 
@@ -56,13 +61,14 @@ public class User {
 
     public List<Role> getRoles() { return roles; }
 
+    public List<Role> getInterests() { return interests; }
+
     public List<Instrument> getInstruments() { return instruments; }
 
+    public List<String> getMostPlayedSpotifyArtists() { return mostPlayedSpotifyArtists; }
 
+    public List<User> getAcceptedUsers() { return acceptedUsers; }
 
-
-
-
-
+    public List<User> getRejectedUsers() { return rejectedUsers; }
 
 }
