@@ -2,6 +2,9 @@ package com.example.courtneypettiford.tunecollab.model;
 
 import java.util.List;
 
+import kaaes.spotify.webapi.android.models.Album;
+import kaaes.spotify.webapi.android.models.Artist;
+
 /**
  * Created by courtneypettiford on 3/10/18.
  */
@@ -16,10 +19,11 @@ public class User {
     private List<Role> interests;
     private List<Role> roles;
     private List<Instrument> instruments;
-    private List<String> mostPlayedSpotifyArtists;
-    private List<String> recentlyPlayedAlbums;
+    private List<Artist> mostPlayedSpotifyArtists;
+    private List<Album> savedAlbums;
     private List<User> acceptedUsers;
     private List<User> rejectedUsers;
+    private String id;
 
     //TODO: add location in???
 
@@ -28,8 +32,8 @@ public class User {
     public User(String firstName, String lastName, String stageName,
                 List<String> influences, List<Genre> genres, List<Role> roles,
                 List<Role> interests, List<Instrument> instruments,
-                List<String> mostPlayedSpotifyArtists, List<String> recentlyPlayedAlbums,
-                List<User> acceptedUsers, List<User> rejectedUsers){
+                List<Artist> mostPlayedSpotifyArtists, List<Album> savedAlbums,
+                List<User> acceptedUsers, List<User> rejectedUsers, String id){
         this.firstName = firstName;
         this.lastName = lastName;
         this.stageName = stageName;
@@ -39,9 +43,10 @@ public class User {
         this.interests = interests;
         this.instruments = instruments;
         this.mostPlayedSpotifyArtists = mostPlayedSpotifyArtists;
-        this.recentlyPlayedAlbums = recentlyPlayedAlbums;
+        this.savedAlbums = savedAlbums;
         this.acceptedUsers = acceptedUsers;
         this.rejectedUsers = rejectedUsers;
+        this.id = id;
     }
 
 
@@ -65,10 +70,14 @@ public class User {
 
     public List<Instrument> getInstruments() { return instruments; }
 
-    public List<String> getMostPlayedSpotifyArtists() { return mostPlayedSpotifyArtists; }
+    public List<Artist> getMostPlayedSpotifyArtists() { return mostPlayedSpotifyArtists; }
+
+    public List<Album> getSavedAlbums() { return savedAlbums; }
 
     public List<User> getAcceptedUsers() { return acceptedUsers; }
 
     public List<User> getRejectedUsers() { return rejectedUsers; }
+
+    public String getId() { return id; }
 
 }

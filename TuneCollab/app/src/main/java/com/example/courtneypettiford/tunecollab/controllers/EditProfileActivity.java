@@ -227,7 +227,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName) && !TextUtils.isEmpty(stageName)) {
             User user = new User(firstName, lastName, stageName, influencesArr,genres, roles,
-                    lookingForRole, instruments, null, null, null, null);
+                    lookingForRole, instruments, null, null, null, null, userId);
             mDatabase.child(userId).setValue(user);
         }
     }
@@ -250,10 +250,6 @@ public class EditProfileActivity extends AppCompatActivity {
                             if (user.getInfluences() != null) {
                                 inputInfluences.setHint(user.getInfluences().toString());
                             }
-//                        genres.setText(user.getGenres().toString());
-//                        instruments.setText(user.getIn\truments().toString());
-//                        roles.setText(user.getRoles().toString());
-//                        influences.setText(user.getInfluences().toString());
                         }
                     }
                 }

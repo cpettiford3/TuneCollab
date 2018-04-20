@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnViewRecommendedProfiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+                startActivity(new Intent(MainActivity.this, RecommendUsersActivity.class));
             }
         });
 

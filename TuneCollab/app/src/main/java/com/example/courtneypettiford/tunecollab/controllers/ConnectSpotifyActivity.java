@@ -15,19 +15,12 @@ import kaaes.spotify.webapi.android.SpotifyApi;
 import kaaes.spotify.webapi.android.SpotifyCallback;
 import kaaes.spotify.webapi.android.SpotifyError;
 import kaaes.spotify.webapi.android.SpotifyService;
-import kaaes.spotify.webapi.android.models.Album;
 import kaaes.spotify.webapi.android.models.Artist;
+import kaaes.spotify.webapi.android.models.ArtistSimple;
 import kaaes.spotify.webapi.android.models.Pager;
-import kaaes.spotify.webapi.android.models.Playlist;
-import kaaes.spotify.webapi.android.models.PlaylistSimple;
-import kaaes.spotify.webapi.android.models.Recommendations;
 import kaaes.spotify.webapi.android.models.SavedAlbum;
-import kaaes.spotify.webapi.android.models.SavedTrack;
 import kaaes.spotify.webapi.android.models.Track;
-import kaaes.spotify.webapi.android.models.UserPublic;
-import okhttp3.Response;
-import retrofit.Callback;
-import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,9 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class ConnectSpotifyActivity extends Activity {
 
-    // TODO: Replace with your client ID
     private static final String CLIENT_ID = "a0e3f05ecef04be3861c7c4cde343b12";
-    // TODO: Replace with your redirect URI
     private static final String REDIRECT_URI = "http://www.tunecollab.com/callback/";
 
     private static final int REQUEST_CODE = 1337;
@@ -100,6 +91,8 @@ public class ConnectSpotifyActivity extends Activity {
         }
     }
 
+
+    //organize into separate methods?
     private void getListOfCurrentUsersPlaylists() {
         SpotifyApi api = new SpotifyApi();
 
@@ -110,28 +103,28 @@ public class ConnectSpotifyActivity extends Activity {
         spotify.getTopArtists(new SpotifyCallback<Pager<Artist>>() {
             @Override
             public void success(Pager<Artist> artist, retrofit.client.Response response) {
-                Log.d("Artist success", artist.toString());
-                mDatabase.child(userId).child("topArtists").setValue(artist.items);
+                Log.d("Success", artist.items.toString());
+                mDatabase.child(userId).child("mostPlayedSpotifyArtists").setValue(artist.items);
             }
 
             @Override
             public void failure(SpotifyError error) {
-                Log.d("Artist failure", error.toString());
+                Log.d("Failure", error.toString());
             }
         });
 
-        spotify.getMySavedAlbums(new SpotifyCallback<Pager<SavedAlbum>>() {
-            @Override
-            public void success(Pager<SavedAlbum> savedAlbum, retrofit.client.Response response) {
-                Log.d("Saved album success", savedAlbum.toString());
-                mDatabase.child(userId).child("savedAlbums").setValue(savedAlbum.items);
-            }
-
-            @Override
-            public void failure(SpotifyError error) {
-                Log.d("Saved album failure", error.toString());
-            }
-        });
+//        spotify.getMySavedAlbums(new SpotifyCallback<Pager<SavedAlbum>>() {
+//            @Override
+//            public void success(Pager<SavedAlbum> savedAlbum, retrofit.client.Response response) {
+//                Log.d("Saved album success", savedAlbum.toString());
+//                mDatabase.child(userId).child("savedAlbums").setValue(savedAlbum.items);
+//            }
+//
+//            @Override
+//            public void failure(SpotifyError error) {
+//                Log.d("Saved album failure", error.toString());
+//            }
+//        });
     }
 
     @Override

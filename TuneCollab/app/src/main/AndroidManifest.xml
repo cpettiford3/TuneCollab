@@ -21,5 +21,6 @@
         <activity android:name=".controllers.EditProfileActivity" />
         <activity android:name=".controllers.ConnectSpotifyActivity" />
         <activity android:name=".controllers.ProfileActivity" />
+        <activity android:name=".controllers.RecommendUsersActivity" />
     </application>
 </manifest>
