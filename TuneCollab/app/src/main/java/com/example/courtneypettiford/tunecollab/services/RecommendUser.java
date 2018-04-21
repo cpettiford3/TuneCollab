@@ -1,20 +1,7 @@
-package com.example.courtneypettiford.tunecollab.controllers;
+package com.example.courtneypettiford.tunecollab.services;
 
-import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-
-import com.example.courtneypettiford.tunecollab.R;
 import com.example.courtneypettiford.tunecollab.model.User;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,62 +9,44 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import kaaes.spotify.webapi.android.models.Artist;
 
-public class RecommendUsersActivity extends Activity {
+/**
+ * Created by courtneypettiford on 4/20/18.
+ */
+
+public class RecommendUser {
 
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
+    private List<User> users = new ArrayList<>();
     private User currentUser;
-    private List<User> recUsers = new LinkedList<>();
+    private List<User> recUsers = new ArrayList<>();
+    private List<String> usersFirstNames = new ArrayList<>();
     private List<User> rolesInCommon = new LinkedList<>();
     private List<User> genresInCommon = new LinkedList<>();
     private List<User> influencesInCommon = new LinkedList<>();
     private List<User> topArtistsInCommon = new LinkedList<>();
-    private Map<User, Integer> savedAlbumsInCommon = new HashMap<>();
 
-    private FirebaseUser user;
-    private String userId;
-
-
-    //with smaller data set and less complex algorithm, these were cutoffs I had for the
-    //users to compare similarities
     private static final Integer roleMinimum = 1;
-    private static final Integer genreMinimum = 2;
-    private static final Integer influencesMinimum = 2;
-    private static final Integer artistsMinimum = 2;
+    private static final Integer genreMinimum = 1;
+    private static final Integer influencesMinimum = 1;
+    private static final Integer artistsMinimum = 1;
 
-    private Button back;
-    private ListView recListView;
+    public RecommendUser() {
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recommended_users);
-
+    }
+    public List<User> determineUserCompatibility() {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        user = mAuth.getCurrentUser();
-        userId = user.getUid();
 
-        determineUserCompatibility();
-    }
-
-    private void determineUserCompatibility() {
-        mDatabase.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+        mDatabase.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
-                List<User> users = new ArrayList<>();
-                List<String> userNames = new ArrayList<>();
-
                 if (mAuth.getCurrentUser() != null) {
                     for (DataSnapshot ds: dataSnapshot.getChildren()) {
                         User user = ds.getValue(User.class);
@@ -90,7 +59,6 @@ public class RecommendUsersActivity extends Activity {
                         }
                     }
                 }
-
 
                 List rolesLookingFor = currentUser.getInterests();
                 List genres = currentUser.getGenres();
@@ -170,18 +138,6 @@ public class RecommendUsersActivity extends Activity {
                         recUsers.add(u);
                     }
                 }
-
-                for (User user: recUsers) {
-                    userNames.add(user.getFirstName() + " " + user.getLastName());
-                    userNames.add("Role(s): " + user.getRoles());
-                    userNames.add("Genre(s): " + user.getGenres().toString());
-                    userNames.add("Influences: " + user.getInfluences());
-
-                }
-
-                ListView listview = findViewById(R.id.list);
-                ArrayAdapter arr = new ArrayAdapter<>(RecommendUsersActivity.this, android.R.layout.simple_list_item_1, userNames);
-                listview.setAdapter(arr);
             }
 
 
@@ -189,7 +145,9 @@ public class RecommendUsersActivity extends Activity {
             public void onCancelled(DatabaseError databaseError) {
                 System.out.println("The read failed: " + databaseError.getCode());
             }
-        });
-    }
 
+        });
+
+        return recUsers;
+    }
 }

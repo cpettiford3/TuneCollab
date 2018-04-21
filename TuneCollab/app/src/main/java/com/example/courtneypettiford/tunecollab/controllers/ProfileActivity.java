@@ -71,28 +71,5 @@ public class ProfileActivity extends Activity {
             }
         });
 
-
-
-        mDatabase.child("users").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (mAuth.getCurrentUser() != null) {
-                    for (DataSnapshot ds: dataSnapshot.getChildren()) {
-                        User user = ds.getValue(User.class);
-                        userName.setText(user.getFirstName() + " " +  user.getLastName());
-                        genres.setText(user.getGenres().toString());
-                        instruments.setText(user.getInstruments().toString());
-                        roles.setText(user.getRoles().toString());
-                        influences.setText(user.getInfluences().toString());
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
-
     }
 }

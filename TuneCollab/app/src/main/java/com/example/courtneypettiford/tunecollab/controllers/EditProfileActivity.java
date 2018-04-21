@@ -227,7 +227,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         if (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName) && !TextUtils.isEmpty(stageName)) {
             User user = new User(firstName, lastName, stageName, influencesArr,genres, roles,
-                    lookingForRole, instruments, null, null, null, null, userId);
+                    lookingForRole, instruments, null, null, null, null, userId, null);
             mDatabase.child(userId).setValue(user);
         }
     }

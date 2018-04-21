@@ -49,8 +49,9 @@ public class ConnectSpotifyActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID,
-                AuthenticationResponse.Type.TOKEN, REDIRECT_URI);
+        AuthenticationRequest.Builder builder = new AuthenticationRequest.Builder(CLIENT_ID, AuthenticationResponse.Type.TOKEN, REDIRECT_URI).setShowDialog(true);
+
+
         builder.setScopes(new String[]{"user-read-private", "streaming", "playlist-read-private",
         "user-library-read", "user-top-read"});
         AuthenticationRequest request = builder.build();
@@ -113,18 +114,18 @@ public class ConnectSpotifyActivity extends Activity {
             }
         });
 
-//        spotify.getMySavedAlbums(new SpotifyCallback<Pager<SavedAlbum>>() {
-//            @Override
-//            public void success(Pager<SavedAlbum> savedAlbum, retrofit.client.Response response) {
-//                Log.d("Saved album success", savedAlbum.toString());
-//                mDatabase.child(userId).child("savedAlbums").setValue(savedAlbum.items);
-//            }
-//
-//            @Override
-//            public void failure(SpotifyError error) {
-//                Log.d("Saved album failure", error.toString());
-//            }
-//        });
+        spotify.getMySavedAlbums(new SpotifyCallback<Pager<SavedAlbum>>() {
+            @Override
+            public void success(Pager<SavedAlbum> savedAlbum, retrofit.client.Response response) {
+                Log.d("Saved album success", savedAlbum.toString());
+                mDatabase.child(userId).child("savedAlbums").setValue(savedAlbum.items);
+            }
+
+            @Override
+            public void failure(SpotifyError error) {
+                Log.d("Saved album failure", error.toString());
+            }
+        });
     }
 
     @Override

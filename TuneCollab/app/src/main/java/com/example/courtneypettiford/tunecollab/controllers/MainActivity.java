@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         btnViewRecommendedProfiles = findViewById(R.id.viewRecommendProfiles);
         btnLogout = findViewById(R.id.logout);
 
+
+
         btnViewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

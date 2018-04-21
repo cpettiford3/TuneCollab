@@ -24,6 +24,7 @@ public class User {
     private List<User> acceptedUsers;
     private List<User> rejectedUsers;
     private String id;
+    private List<User> recUsers;
 
     //TODO: add location in???
 
@@ -33,7 +34,7 @@ public class User {
                 List<String> influences, List<Genre> genres, List<Role> roles,
                 List<Role> interests, List<Instrument> instruments,
                 List<Artist> mostPlayedSpotifyArtists, List<Album> savedAlbums,
-                List<User> acceptedUsers, List<User> rejectedUsers, String id){
+                List<User> acceptedUsers, List<User> rejectedUsers, String id, List<User> recUsers){
         this.firstName = firstName;
         this.lastName = lastName;
         this.stageName = stageName;
@@ -47,6 +48,7 @@ public class User {
         this.acceptedUsers = acceptedUsers;
         this.rejectedUsers = rejectedUsers;
         this.id = id;
+        this.recUsers = recUsers;
     }
 
 
@@ -79,5 +81,7 @@ public class User {
     public List<User> getRejectedUsers() { return rejectedUsers; }
 
     public String getId() { return id; }
+
+    public List<User> getRecUsers() { return recUsers; }
 
 }
